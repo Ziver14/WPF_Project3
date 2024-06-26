@@ -8,15 +8,17 @@
         Title="Список Дел" Height="450" Width="800">
 
     <Grid Background="#FFFDFAF1">
-        <Grid.ColumnDefinitions>
+        <!--<Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
-        </Grid.ColumnDefinitions>
-        <DockPanel LastChildFill="True" Grid.Column="0" Margin="5 0 10 5">
+        </Grid.ColumnDefinitions>-->
+        <DockPanel LastChildFill="True" Grid.Column="0"  Margin="5 0 10 5">
             <TextBlock DockPanel.Dock="Top" FontSize="26" HorizontalAlignment="Center">Список Дел</TextBlock>
-            <Button DockPanel.Dock="Bottom" Grid.Column="1" MaxWidth="100" MinHeight="20"
+            <Button DockPanel.Dock="Bottom" Grid.Column="1" MaxWidth="100" MinHeight="20" HorizontalAlignment="Left"
                     Background="#5EBEC4" Margin="0 5 0 0" Padding="5" Click="ButtonRemoveToDo_Click">Удалить дела</Button>
-            <ListBox Background="#FDF5DF" Name ="listToDo">
+            <Button DockPanel.Dock="Bottom" Grid.Column="1" MaxWidth="100" MinHeight="20" HorizontalAlignment="Right" 
+        Background="#5EBEC4" Margin="0 5 0 0" Padding="5" Click="ButtonRemoveToDo_Click">Добавить дела</Button>
+            <ListBox Background="#FDF5DF"  Name ="listToDo">
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <StackPanel>
@@ -28,7 +30,7 @@
                 </ListBox.ItemTemplate>
             </ListBox>
         </DockPanel>
-        <DockPanel LastChildFill="True" Grid.Column="1" Margin="10 0 5 5" >
+        <!--<DockPanel LastChildFill="True" Grid.Column="1" Margin="10 0 5 5" >
             <CheckBox DockPanel.Dock="Top"
                       Margin="0 20 0 0" Name="checkboxEnableToDo" VerticalAlignment="Center" HorizontalAlignment="Left" Checked="CheckboxEnableToDo_Checked"
                       Unchecked="CheckboxEnableToDo_Unchecked">Добавление Новых дел</CheckBox>
@@ -47,7 +49,7 @@
             </StackPanel>
                 
 
-        </DockPanel>
+        </DockPanel>-->
 
 
 

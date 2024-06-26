@@ -19,6 +19,7 @@ namespace WPF_Project3
     public partial class MainWindow : Window
     {
         public List<ToDo> toDoList = new List<ToDo>();
+
         public MainWindow()
         {
             InitializeComponent();
@@ -31,7 +32,7 @@ namespace WPF_Project3
             toDoList.Add(new ToDo("Вырастить дом", new DateTime(2024, 01, 13), "Важно"));
             toDoList.Add(new ToDo("Умереть", new DateTime(2024, 01, 14), "Важно"));
             RefreshToDoList();
-            CheckboxEnableToDo_Checked(Owner, new RoutedEventArgs());
+            CheckboxEnableToDo_Unchecked(Owner, new RoutedEventArgs());
         }
 
         private void RefreshToDoList()
@@ -45,6 +46,10 @@ namespace WPF_Project3
             if(groupBoxToDo == null|| buttonAdd == null) return;
             groupBoxToDo.Visibility = Visibility.Visible;
             buttonAdd.Visibility = Visibility.Visible;
+            CreateToDo createToDo = new CreateToDo();
+            createToDo.Show();
+            
+            this.Close();
         }
 
         private void CheckboxEnableToDo_Unchecked(object sender, EventArgs e)
