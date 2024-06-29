@@ -7,58 +7,34 @@
         mc:Ignorable="d"
         Title="Список Дел" Height="450" Width="800">
 
-    <Grid Background="#FFFDFAF1">
-        <!--<Grid.ColumnDefinitions>
+    <Grid>
+        <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
-        </Grid.ColumnDefinitions>-->
-        <DockPanel LastChildFill="True" Grid.Column="0"  Margin="5 0 10 5">
-            <TextBlock DockPanel.Dock="Top" FontSize="26" HorizontalAlignment="Center">Список Дел</TextBlock>
-            <Button DockPanel.Dock="Bottom" Grid.Column="1" MaxWidth="100" MinHeight="20" HorizontalAlignment="Left"
-                    Background="#5EBEC4" Margin="0 5 0 0" Padding="5" Click="ButtonRemoveToDo_Click">Удалить дела</Button>
-            <Button DockPanel.Dock="Bottom" Grid.Column="1" MaxWidth="100" MinHeight="20" HorizontalAlignment="Right" 
-        Background="#5EBEC4" Margin="0 5 0 0" Padding="5" Click="ButtonRemoveToDo_Click">Добавить дела</Button>
-            <ListBox Background="#FDF5DF"  Name ="listToDo">
-                <ListBox.ItemTemplate>
-                    <DataTemplate>
-                        <StackPanel>
-                            <TextBlock Text = "{Binding Path = Title}"/>
-                            <TextBlock Text = "{Binding Path= Date, StringFormat='dd.MM.yyyy'}"/>
-                            <TextBlock Text = "{Binding Path=Description}" FontSize = "10"/>
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
-            </ListBox>
-        </DockPanel>
-        <!--<DockPanel LastChildFill="True" Grid.Column="1" Margin="10 0 5 5" >
-            <CheckBox DockPanel.Dock="Top"
-                      Margin="0 20 0 0" Name="checkboxEnableToDo" VerticalAlignment="Center" HorizontalAlignment="Left" Checked="CheckboxEnableToDo_Checked"
-                      Unchecked="CheckboxEnableToDo_Unchecked">Добавление Новых дел</CheckBox>
-            <Button Margin="0 5 0 0" Name="buttonAdd" DockPanel.Dock="Bottom" MaxWidth="100" MinHeight="20"
-                    Background="#5EBEC4" ToolTip="При добавлении дело придется появится в списке слева"
-                    Padding="5" Click="ButtonAddToDo_Click">Добавить дело</Button>
-            <GroupBox Name="groupBoxToDo" BorderBrush="Gray" BorderThickness="1"></GroupBox>
-            <StackPanel Background="#FDF5DF" Margin="0 1 0 0">
-                <TextBlock>Название:</TextBlock>
-                <TextBox Margin="0 10 10 10" Name="titleToDo"></TextBox>
-                <TextBlock>Выполнить до:</TextBlock>
-                <DatePicker Margin="0 10 10 10" Name="dateTodo"></DatePicker>
-                <TextBlock>Описание:</TextBlock>
-                <TextBox Margin="0 10 10 10" MinLines="10" MaxLines="20" AcceptsReturn="True"
-                         AcceptsTab="True" Name="descriptionToDo"></TextBox>
-            </StackPanel>
-                
-
-        </DockPanel>-->
-
-
-
-
-
-
-
-
-
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition Height="7*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="26" HorizontalAlignment="Center">
+            Список дел
+        </Label>
+        <ListBox Name="listToDo" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Background="#FDF5DF">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Path=Title}"/>
+                        <TextBlock Text="{Binding Path=Date, StringFormat='dd.MM.yyyy'}"/>
+                        <TextBlock Text="{Binding Path=Description}" FontSize="10"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Name="buttonAdd" Grid.Column="1" Grid.Row="2" ToolTip="При добавлении дело появится в списке слева и его прийдётся выполнить" MinHeight="20" 
+                    MaxWidth="100" Background="#5EBEC4" Margin="0 5 0 5" Padding="5" Click="ButtonAddToDo_Click">Добавить дело</Button>
+        <Button Name="buttonDelete" Grid.Column="0" Grid.Row="2" MinHeight="20" MaxWidth="100" Background="#5EBEC4" 
+                Margin="0 5 0 5" Padding="5" Click="ButtonRemoveToDo_Click">Удалить дело</Button>
     </Grid>
 
 </Window>
